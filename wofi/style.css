@@ -1,0 +1,38 @@
+* {
+	border-radius: 3px;
+	border: none;
+}
+
+window {
+	font-size: 20px;
+	background-color: rgba(50,50,50,0.9);
+	color: rgba(195,195,195,255);
+	font-family: 'Poppins';
+	//border: 2px solid #cccccc;
+	border-radius: 6px;
+}
+
+#entry {
+	padding: 0.5em;
+	font-family: 'Poppins';
+}
+
+#entry:selected {
+	background: linear-gradient(90deg, #aabbff, #dd77ff);
+}
+
+#text:selected {
+	color: #333333;
+}
+
+#input {
+	background-color: rgba(50,50,50,0.5);
+	color: rgba(195,195,195,255);
+	padding: 0.5em;
+	font-family: 'Poppins';
+}
+
+image {
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+}
