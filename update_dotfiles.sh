@@ -2,8 +2,10 @@
 
 sudo cp -r ~/.bashrc ./.bashrc
 
-sudo cp -r ~/.config/kitty/ ./kitty
-sudo cp -r ~/.config/nvim/ ./nvim
+sudo mkdir ./.config
+
+sudo cp -r ~/.config/kitty/ ./.config/kitty
+sudo cp -r ~/.config/nvim/ ./.config/nvim
 
 sudo mkdir ./etc
 sudo mkdir ./etc/pacman.d
