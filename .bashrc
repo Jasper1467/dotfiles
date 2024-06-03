@@ -1,4 +1,6 @@
-# Enable the subsequent settings only in interactive sessions
+#export C_INCLUDE_PATH=/usr/include
+#export CPLUS_INCLUDE_PATH=/usr/include
+#Enable the subsequent settings only in interactive sessions
 case $- in
 *i*) ;;
 *) return ;;
@@ -134,7 +136,7 @@ export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
@@ -151,5 +153,18 @@ export PATH=$BUN_INSTALL/bin:$PATH
 . "$HOME/.cargo/env"
 
 export PATH="/opt/intel/oneapi/compiler/latest/bin:$PATH"
+
 alias dotfiles='/usr/bin/git --git-dir=/home/jasper/.dotfiles/ --work-tree=/home/jasper'
 alias dotfiles='/usr/bin/git --git-dir=/home/jasper/.dotfiles/ --work-tree=/home/jasper'
+
+# nvm this give errors
+#export C_INCLUDE_PATH=/usr/include
+#export CPLUS_INCLUDE_PATH=/usr/include
+
+export PATH="~/Odin:$PATH"
+export ODIN_ROOT=~/Odin/
+
+export "PATH=/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+#export PATH="opt/intel/oneapi/tbb/latest/include:$PATH"

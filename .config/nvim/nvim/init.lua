@@ -6,6 +6,19 @@ vim.opt.tabstop = 4 -- Number of spaces a <Tab> in the file counts for
 vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true -- Convert tabs to spaces
 
+-- Duplicate line downwards and move cursor to the duplicated line
+vim.api.nvim_set_keymap("n", "<C-d>", ':<C-u>execute "normal! yypj"<CR>', { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-d>", '<Esc>:<C-u>execute "normal! yypj"<CR>gi', { noremap = true })
+vim.api.nvim_set_keymap(
+  "v",
+  "<C-d>",
+  ':<C-u>execute "normal! y"<CR>:<C-u>execute "normal! yypj"<CR>',
+  { noremap = true }
+)
+
+-- Prevent default behavior of Ctrl + D to scroll half a screen down
+vim.api.nvim_set_keymap("n", "<C-d>", "<Nop>", { noremap = true })
+
 vim.g.loaded_node_provider = false
 vim.g.loaded_perl_provider = false
 vim.g.loaded_python3_provider = false
