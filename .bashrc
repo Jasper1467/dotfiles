@@ -168,3 +168,6 @@ export "PATH=/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 #export PATH="opt/intel/oneapi/tbb/latest/include:$PATH"
+
+export VCPKG_ROOT="~/vcpkg/"
+export PATH="PATH=$VCPKG_ROOT:$PATH"

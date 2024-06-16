@@ -5,7 +5,7 @@
 vim.api.nvim_set_keymap("i", "<C-e>", "<C-o>$", { noremap = true }) -- Move to end of line in insert mode
 
 -- Neotree toggle with Ctrl+b
-vim.api.nvim_set_keymap("n", "<C-b>", ":Neotree Toggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-b>", ":Neotree<CR>", { noremap = true })
 
 -- Duplicate line below (Shift+Alt+Down)
 vim.api.nvim_set_keymap("n", "<S-A-Down>", ":t.<CR>", { noremap = true, silent = true })

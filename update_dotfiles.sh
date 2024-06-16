@@ -19,3 +19,4 @@ sudo cp -r /etc/makepkg.conf ./etc/
 sudo cp -r /etc/sysctl.d/99-sysctl.conf ./etc/sysctl.d/
 sudo cp -r /etc/environment ./etc/
 sudo cp -r /etc/sysctl.d/99-sysctl.conf ./etc/sysctl.d/
+sudo cp -r /etc/nanorc ./etc/nanorc
