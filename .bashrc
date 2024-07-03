@@ -1,9 +1,7 @@
-#export C_INCLUDE_PATH=/usr/include
-#export CPLUS_INCLUDE_PATH=/usr/include
-#Enable the subsequent settings only in interactive sessions
+# Enable the subsequent settings only in interactive sessions
 case $- in
-*i*) ;;
-*) return ;;
+  *i*) ;;
+    *) return;;
 esac
 
 # Path to your oh-my-bash installation.
@@ -86,9 +84,9 @@ OMB_USE_SUDO=true
 # Example format: completions=(ssh git bundler gem pip pip3)
 # Add wisely, as too many completions slow down shell startup.
 completions=(
-	git
-	composer
-	ssh
+  git
+  composer
+  ssh
 )
 
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
@@ -96,7 +94,7 @@ completions=(
 # Example format: aliases=(vagrant composer git-avh)
 # Add wisely, as too many aliases slow down shell startup.
 aliases=(
-	general
+  general
 )
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -104,8 +102,8 @@ aliases=(
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	bashmarks
+  git
+  bashmarks
 )
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -123,8 +121,6 @@ source "$OSH"/oh-my-bash.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nvim'
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -136,7 +132,7 @@ export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
@@ -146,28 +142,3 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
-. "$HOME/.cargo/env"
-
-export PATH="/opt/intel/oneapi/compiler/latest/bin:$PATH"
-
-alias dotfiles='/usr/bin/git --git-dir=/home/jasper/.dotfiles/ --work-tree=/home/jasper'
-alias dotfiles='/usr/bin/git --git-dir=/home/jasper/.dotfiles/ --work-tree=/home/jasper'
-
-# nvm this give errors
-#export C_INCLUDE_PATH=/usr/include
-#export CPLUS_INCLUDE_PATH=/usr/include
-
-export PATH="~/Odin:$PATH"
-export ODIN_ROOT=~/Odin/
-
-export "PATH=/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
-#export PATH="opt/intel/oneapi/tbb/latest/include:$PATH"
-
-export VCPKG_ROOT="~/vcpkg/"
-export PATH="PATH=$VCPKG_ROOT:$PATH"

@@ -8,8 +8,6 @@ vim.opt.expandtab = true -- Convert tabs to spaces
 
 require("lazy").setup("plugins")
 
-require("config.neoformat")
-
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = { "asm-lsp" },
@@ -24,8 +22,10 @@ require("lspconfig").asm_lsp.setup({
   single_file_support = true,
 })
 
-vim.cmd.colorscheme("catppuccin-macchiato")
+vim.opt.number = true
+vim.opt.relativenumber = false
 
+require("config.neoformat")
 require("config.lualine")
 require("config.options")
 require("config.keymaps")

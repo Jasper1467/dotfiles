@@ -1,9 +1,16 @@
-QT_QPA_PLATFORMTHEME=qt5ct
-QT_STYLE_OVERRIDE=kvantum
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
 EDITOR=nvim
-BROWSER=brave
-
+CC=icpx
+CXX=icpx
 AS=nasm
-CC=clang
-CXX=clang++
+
 LD=ld.lld
+LDFLAGS=-fuse-ld=mold
+
+LANG="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+

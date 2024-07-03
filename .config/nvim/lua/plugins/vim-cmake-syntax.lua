@@ -1,3 +1,3 @@
 return {
-  "pboettch/vim-cmake-syntax",
+    "pboettch/vim-cmake-syntax",
 }
