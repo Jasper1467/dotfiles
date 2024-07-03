@@ -26,3 +26,4 @@ sudo cp -r /etc/nanorc ./etc/nanorc
 sudo cp -r /etc/environment ./etc/
 sudo cp -r /etc/nanorc ./etc/nanorc
 sudo cp -r /etc/X11/xorg.conf.d/20-nvidia.conf ./etc/X11/xorg.conf.d/20-nvidia.conf
+sudo cp -r /etc/auto-cpufreq.conf ./etc/auto-cpufreq.conf
