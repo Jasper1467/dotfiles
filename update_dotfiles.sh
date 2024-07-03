@@ -25,3 +25,4 @@ sudo cp -r /etc/sysctl.d/99-sysctl.conf ./etc/sysctl.d/
 sudo cp -r /etc/nanorc ./etc/nanorc
 sudo cp -r /etc/environment ./etc/
 sudo cp -r /etc/nanorc ./etc/nanorc
+sudo cp -r /etc/X11/xorg.conf.d/20-nvidia.conf ./etc/X11/xorg.conf.d/20-nvidia.conf
