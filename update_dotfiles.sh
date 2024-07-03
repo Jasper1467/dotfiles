@@ -13,7 +13,8 @@ sudo mkdir ./etc
 sudo mkdir ./etc/pacman.d
 sudo mkdir ./etc/sysctl.d
 sudo mkdir ./etc/makepkg.conf.d
-sudo mkdir ./etc/makepkg.conf.d/linux-config
+sudo mkdir ./etc/X11
+sudo mkdir ./etc/X11/xorg.conf.d
 
 sudo cp -r /etc/mkinitcpio.conf ./etc/mkinitcpio.conf
 sudo cp -r /etc/pacman.conf ./etc/
