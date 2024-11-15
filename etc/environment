@@ -1,16 +1,4 @@
-#
-# This file is parsed by pam_env module
-#
-# Syntax: simple "KEY=VAL" pairs on separate lines
-#
-EDITOR=nvim
-CC=icpx
-CXX=icpx
-AS=nasm
-
-LD=ld.lld
-LDFLAGS=-fuse-ld=mold
-
-LANG="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
-
+#QT_QPA_PLATFORMTHEME=qt5ct
+#QT_STYLE_OVERRIDE=kvantum
+EDITOR=nano
+BROWSER=firefox
