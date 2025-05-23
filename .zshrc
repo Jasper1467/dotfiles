@@ -102,3 +102,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Use Clang as the default C/C++ compiler
+export CC=clang
+export CXX=clang++
+
+export VCPKG_ROOT="$HOME/vcpkg"
+
+PATH="/home/jasper/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jasper/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jasper/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jasper/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jasper/perl5"; export PERL_MM_OPT;
+
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
