@@ -4,8 +4,8 @@ sudo cp -r ~/.zshrc ./.zshrc
 
 sudo mkdir ./.config
 
-sudo cp -r ~/.config/kitty/* ./.config/*
-sudo cp -r ~/.config/nvim/* ./.config/*
+sudo cp -r ~/.config/kitty/ ./.config/
+sudo cp -r ~/.config/nvim/ ./.config/
 
 sudo mkdir ./etc
 
