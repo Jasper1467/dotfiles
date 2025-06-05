@@ -6,6 +6,7 @@ sudo mkdir ./.config
 
 sudo cp -r ~/.config/kitty/ ./.config/
 sudo cp -r ~/.config/nvim/ ./.config/
+sudo cp -r ~/.config/hypr ./.config/hypr/
 
 sudo mkdir ./etc
 

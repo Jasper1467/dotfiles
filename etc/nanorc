@@ -25,7 +25,7 @@
 ## Automatically indent a newly created line to the same number of
 ## tabs and/or spaces as the preceding line -- or as the next line
 ## if the preceding line is the beginning of a paragraph.
-set autoindent
+# set autoindent
 
 ## Back up files to the current filename plus a tilde.
 # set backup
@@ -45,12 +45,16 @@ set autoindent
 # set brackets ""')>]}"
 
 ## Automatically hard-wrap the current line when it becomes overlong.
-set breaklonglines
+# set breaklonglines
 
 ## Do case-sensitive searches by default.
 # set casesensitive
 
-## Constantly display the cursor position in the status bar or minibar.
+## Interpret digits given on the command line after a colon after a filename
+## as the line number to go to in that file.
+# set colonparsing
+
+## Constantly report the cursor position, in the status bar or minibar.
 # set constantshow
 
 ## Use cut-from-cursor-to-end-of-line by default.
@@ -69,16 +73,16 @@ set breaklonglines
 # set guidestripe 75
 
 ## Remember the used search/replace strings for the next session.
-set historylog
+# set historylog
 
 ## Display a "scrollbar" on the righthand side of the edit window.
-set indicator
+# set indicator
 
 ## Scroll the buffer contents per half-screen instead of per line.
 # set jumpyscrolling
 
 ## Display line numbers to the left (and any anchors in the margin).
-set linenumbers
+# set linenumbers
 
 ## Enable vim-style lock-files.  This is just to let a vim user know you
 ## are editing a file [s]he is trying to edit and vice versa.  There are
@@ -91,21 +95,21 @@ set linenumbers
 ## The opening and closing brackets that are found by a matching-bracket
 ## search.  This may not contain blank characters.  The opening brackets
 ## must come before the closing ones, and they must be in the same order.
-set matchbrackets "(<[{)>]}"
+# set matchbrackets "(<[{)>]}"
 
 ## Suppress the title bar and show the filename plus a cursor-position
 ## percentage in the space of the status bar.
-set minibar
+# set minibar
 
 ## Enable mouse support, if available for your system.  When enabled,
-## mouse clicks can be used to place the cursor, set the mark (with a
-## double click), and execute shortcuts.  The mouse will work in the
+## mouse clicks can be used to place the cursor, set the mark (with
+## two clicks), and execute shortcuts.  The mouse will work in the
 ## X Window System, and on the console when gpm is running.
 # set mouse
 
 ## Switch on multiple file buffers (inserting a file will put it into
 ## a separate buffer).
-set multibuffer
+# set multibuffer
 
 ## Don't convert files from DOS/Mac format.
 # set noconvert
@@ -129,7 +133,7 @@ set multibuffer
 # set preserve
 
 ## The characters treated as closing punctuation when justifying paragraphs.
-## This may not contain blank characters.  Only these closing punctuations,
+## This may not contain blank characters.  Only these terminating characters,
 ## optionally followed by closing brackets, can end sentences.
 # set punct "!.?"
 
@@ -163,7 +167,7 @@ set multibuffer
 ## will jump to that beginning (either forwards or backwards).  If the
 ## cursor is already at that position, it will jump to the true start
 ## of the line (the left edge).
-set smarthome
+# set smarthome
 
 ## Spread overlong lines over multiple screen lines.
 # set softwrap
@@ -212,45 +216,45 @@ set smarthome
 ## Hide the bars plus help lines and use the whole terminal as edit area.
 # set zero
 
+
 ## Paint the interface elements of nano.  These are examples; there are
 ## no colors by default, except for errorcolor and spotlightcolor.
-set titlecolor bold,black,white
-set promptcolor white,black
-set statuscolor bold,black,green
-set errorcolor bold,white,red
-set spotlightcolor black,yellow
-set selectedcolor black,white
-set stripecolor ,lightblue
-set scrollercolor lightgreen
-set numbercolor yellow
-set keycolor lightgreen
-set functioncolor lightgreen
+# set titlecolor bold,white,blue
+# set promptcolor lightwhite,grey
+# set statuscolor bold,white,green
+# set errorcolor bold,white,red
+# set spotlightcolor black,lightyellow
+# set selectedcolor lightwhite,#804
+# set stripecolor ,#444
+# set scrollercolor slate,#222
+# set numbercolor cyan
+# set keycolor cyan
+# set functioncolor green
 
 ## In root's .nanorc you might want to use:
-set titlecolor bold,black,lightred
-set promptcolor black,lightyellow
-set statuscolor bold,black,lightgreen
-set errorcolor bold,white,red
-set spotlightcolor black,lightred
-set selectedcolor black,lightcyan
-set stripecolor ,yellow
-set scrollercolor lightred
-set numbercolor lightyellow
-set keycolor lightgreen
-set functioncolor lightred
+# set titlecolor bold,white,magenta
+# set promptcolor black,yellow
+# set statuscolor bold,white,magenta
+# set errorcolor bold,white,red
+# set spotlightcolor black,orange
+# set selectedcolor lightwhite,cyan
+# set stripecolor ,yellow
+# set scrollercolor magenta
+# set numbercolor magenta
+# set keycolor lightmagenta
+# set functioncolor magenta
 
 
 ## === Syntax coloring ===
 ## For all details, see 'man nanorc', section SYNTAX HIGHLIGHTING.
 
 ## To include most of the existing syntax definitions, you can do:
-include "/usr/share/nano/*.nanorc"
-include "/usr/share/nano/extra/*.nanorc"
+# include /usr/share/nano/*.nanorc
 
 ## Or you can select just the ones you need.  For example:
-# include "/usr/share/nano/html.nanorc"
-# include "/usr/share/nano/python.nanorc"
-# include "/usr/share/nano/sh.nanorc"
+# include /usr/share/nano/html.nanorc
+# include /usr/share/nano/python.nanorc
+# include /usr/share/nano/sh.nanorc
 
 ## In /usr/share/nano/extra/ you can find some syntaxes that are
 ## specific for certain distros or for some less common languages.
@@ -287,13 +291,13 @@ include "/usr/share/nano/extra/*.nanorc"
 # unbind M-T main
 ## (Those functions are still accessible through ^T^J and ^T^V.)
 
-## For quickly uppercasing or lowercasing the word under or after the cursor.
+## For quickly uppercasing or lowercasing the word that the cursor is on.
 ## (These effectively select a word and pipe it through a sed command.)
-bind Sh-M-U "{nextword}{mark}{prevword}{execute}|sed 's/.*/\U&/'{enter}" main
-bind Sh-M-L "{nextword}{mark}{prevword}{execute}|sed 's/.*/\L&/'{enter}" main
+# bind Sh-M-U "{nextword}{mark}{prevword}{execute}| sed 's/.*/\U&/' {enter}" main
+# bind Sh-M-L "{nextword}{mark}{prevword}{execute}| sed 's/.*/\L&/' {enter}" main
 
 ## For copying a marked region to the system clipboard:
-# bind Sh-M-C "{execute}|xsel -ib{enter}{undo}" main
+# bind Sh-M-C "{execute}| xsel -ib {enter}{undo}" main
 
 ## For normalizing Unicode to precomposed characters:
 # bind Sh-M-N "{execute}| uconv -x nfc {enter}" main
