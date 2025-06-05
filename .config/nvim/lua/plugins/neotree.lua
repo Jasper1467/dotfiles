@@ -19,7 +19,6 @@ return {
           icon = {
             folder_closed = "",
             folder_open = "",
-            folder_empty = "ﰊ",
             default = "",
           },
           git_status = {
