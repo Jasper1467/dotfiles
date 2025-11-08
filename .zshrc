@@ -109,3 +109,8 @@ export LC_ALL=en_US.UTF-8
 # Use Clang as the default C/C++ compiler
 export CC=clang
 export CXX=clang++
+
+# ccache
+export CCACHE_DIR="$HOME/.cache/ccache"
+export CCACHE_COMPRESS=1
+
