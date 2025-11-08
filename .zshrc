@@ -113,4 +113,10 @@ export CXX=clang++
 # ccache
 export CCACHE_DIR="$HOME/.cache/ccache"
 export CCACHE_COMPRESS=1
+export CCACHE_MAXSIZE=20G
 
+# Rust / Cargo
+export CARGO_BUILD_JOBS=$(nproc)
+
+# Python / pip
+export PIP_BUILD_PARALLEL=$(nproc)
