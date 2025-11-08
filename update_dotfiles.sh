@@ -6,9 +6,9 @@ sudo mkdir ./.config
 
 sudo cp -r ~/.config/kitty/ ./.config/
 sudo cp -r ~/.config/nvim/ ./.config/
-sudo cp -r ~/.config/hypr/ ./.config/hypr/
-sudo cp -r ~/.config/niri/ ./.config/niri/
-sudo cp -r ~/.config/rofi/ ./.config/rofi/
+sudo cp -r ~/.config/hypr/ ./.config/
+sudo cp -r ~/.config/niri/ ./.config/
+sudo cp -r ~/.config/rofi/ ./.config/
 
 sudo mkdir ./etc
 
