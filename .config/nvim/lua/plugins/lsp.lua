@@ -42,6 +42,8 @@ return {
                     "--clang-tidy",
                     "--completion-style=bundled",
                     "--header-insertion=iwyu",
+                    "--log=error",
+                    "--offset-encoding=utf-16",
                     "--cross-file-rename",
                 },
                 on_attach = on_attach,
