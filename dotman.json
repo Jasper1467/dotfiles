@@ -1,0 +1,35 @@
+{
+    "dotfiles": [
+        {
+            "src": "~/.zshrc",
+            "dst": ".zshrc",
+            "sudo": false
+        },
+        {
+            "src": "~/.config/kitty",
+            "dst": "config/kitty",
+            "sudo": false
+        },
+        {
+            "src": "~/.config/nvim",
+            "dst": "config/nvim",
+            "sudo": false
+        },
+        {
+            "src": "/etc/pacman.conf",
+            "dst": "etc/pacman.conf",
+            "sudo": true
+        },
+        {
+            "src": "/etc/makepkg.conf",
+            "dst": "etc/makepkg.conf",
+            "sudo": true
+        },
+        {
+            "src": "/etc/nanorc",
+            "dst": "etc/nanorc",
+            "sudo": true
+        }
+    ]
+}
+
