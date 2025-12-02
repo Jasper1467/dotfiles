@@ -12,6 +12,8 @@ return {
                 json = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
+                go = { "gofmt" },
+                lua = { "stylua" },
             },
         },
         keys = {
