@@ -129,3 +129,10 @@ export CARGO_BUILD_JOBS=$(nproc)
 
 # Python / pip
 export PIP_BUILD_PARALLEL=$(nproc)
+
+# Go
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Zig
+export PATH="/home/jasper/.local/share/zigvm/shims:$PATH"
