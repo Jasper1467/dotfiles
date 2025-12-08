@@ -17,8 +17,7 @@ return {
 				black = "#000000", -- added black
 			}
 
-			-- Define a custom theme
-			local cyber_theme = {
+			local theme = {
 				normal = {
 					a = { fg = cyber_colors.bg, bg = cyber_colors.pink, gui = "bold" },
 					b = { fg = cyber_colors.fg, bg = cyber_colors.blue },
@@ -53,7 +52,7 @@ return {
 
 			require("lualine").setup({
 				options = {
-					theme = cyber_theme,
+					theme = theme,
 					section_separators = { left = "", right = "" },
 					component_separators = { left = "", right = "" },
 					globalstatus = true,

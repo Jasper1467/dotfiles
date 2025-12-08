@@ -1,0 +1,55 @@
+add_newline = false
+scan_timeout = 30
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$character\
+$cmake\
+$zig
+"""
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+vicmd_symbol = "❮"
+
+[username]
+style_user = 'cyan bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+style = "bold cyan"
+format = "[$path]($style) "
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold yellow"
+format = "[($all_status$ahead_behind)]($style)"
+staged = "●"
+modified = "✱"
+deleted = "✖"
+conflicted = "‼"
+renamed = "➜"
+untracked = "…"
+stashed = "⚑"
+ahead = "↑${count}"
+behind = "↓${count}"
+
+[cmake]
+format = "[$symbol($version )]($style)"
+
+[zig]
+format = "[$symbol($version )]($style)"

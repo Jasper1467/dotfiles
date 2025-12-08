@@ -14,6 +14,7 @@ return {
 			require("mason").setup()
 			local mason_lspconfig = require("mason-lspconfig")
 			local lspconfig = require("lspconfig")
+            local util = require("lspconfig.util")
 
 			mason_lspconfig.setup({
 				ensure_installed = { "clangd", "lua_ls", "gopls", "rust_analyzer", "zls", "bashls" },
@@ -100,9 +101,9 @@ return {
 			vim.lsp.config["zls"] = {
 				on_attach = on_attach,
 				capabilities = capabilities,
+				root_dir = util.root_pattern("zls.json", "build.zig", ".git"),
 			}
-
-            -- Shell
+			-- Shell
 			vim.lsp.config["bashls"] = {
 				on_attach = on_attach, -- reuse your existing on_attach callback
 				capabilities = capabilities, -- reuse cmp capabilities
