@@ -136,3 +136,17 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Zig
 export PATH="/home/jasper/.local/share/zigvm/shims:$PATH"
+
+eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/jasper/.bun/_bun" ] && source "/home/jasper/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/jasper/.lmstudio/bin"
+# End of LM Studio CLI section
+
