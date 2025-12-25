@@ -258,9 +258,10 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-sh-at-startup "qs -c ~/.config/noctalia/"
+
 spawn-at-startup "mako"
-spawn-sh-at-startup "~/.local/scripts/mpvpaper_run.sh"
+spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/jellyfish.png -m fill"
 
 spawn-at-startup "swayidle" \
   "timeout 300 'swaylock -f'" \
