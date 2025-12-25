@@ -1,12 +1,13 @@
 * {
-    bg: #11121d;
-    bg-alt: #444b6a;
+    bg:        #050a14;   /* deep navy */
+    bg-alt:    #0b1e33;   /* blue-tinted panel */
+    fg:        #e6f6ff;   /* near-white cyan */
+    fg-alt:    #5fa8d3;   /* muted neon blue */
 
-    fg: #ffffff;
-    fg-alt: #787c99;
+    accent:    #00b4ff;   /* neon blue */
+    accent-alt:#007acc;   /* darker neon */
 
     background-color: @bg;
-
     border: 0;
     margin: 0;
     padding: 0;
@@ -23,7 +24,8 @@ element {
 }
 
 element selected {
-    text-color: @fg;
+    background-color: @bg-alt;
+    text-color: @accent;
 }
 
 element-text {
@@ -40,6 +42,7 @@ entry {
     background-color: @bg-alt;
     padding: 12;
     text-color: @fg;
+    caret-color: @accent;
 }
 
 inputbar {
@@ -56,5 +59,6 @@ prompt {
     background-color: @bg-alt;
     enabled: true;
     padding: 12 0 0 12;
-    text-color: @fg;
+    text-color: @accent;
 }
+
