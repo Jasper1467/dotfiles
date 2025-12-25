@@ -1,0 +1,29 @@
+[global]
+monitor = 0
+follow = keyboard
+notification_limit = 0
+width = 320
+height = 120
+offset = 20x20
+origin = top-right
+corner_radius = 12
+font = JetBrainsMono Nerd Font 10
+frame_width = 2
+frame_color = "#00b4ff"
+background = "#050a14"
+foreground = "#e6f6ff"
+timeout = 5
+
+[urgency_low]
+background = "#050a14"
+foreground = "#5fa8d3"
+
+[urgency_normal]
+background = "#050a14"
+foreground = "#e6f6ff"
+
+[urgency_critical]
+background = "#0b1e33"
+foreground = "#ff5555"
+frame_color = "#ff5555"
+
