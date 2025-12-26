@@ -1,0 +1,43 @@
+* {
+  bg:        #050a14;
+  bg-alt:    #0b1e33;
+  fg:        #e6f6ff;
+  fg-alt:    #5fa8d3;
+
+  accent:    #00b4ff;
+  accent-alt:#007acc;
+
+  background-color: @bg;
+  foreground: @fg;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 20%;
+  background-color: @bg;
+  border-radius: 12px;
+}
+
+element {
+    padding: 12;
+    text-color: @fg-alt;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @accent;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected element-text {
+  text-color: @fg;
+}
+

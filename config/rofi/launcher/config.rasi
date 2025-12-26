@@ -8,4 +8,4 @@ configuration {
     icon-theme: "Papirus";
 }
 
-@theme "~/.config/rofi/theme.rasi"
+@theme "~/.config/rofi/launcher/theme.rasi"
