@@ -1,0 +1,25 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "margin-bottom": 0,
+  "height": 36,
+  "spacing": 10,
+
+  "modules-left": [
+    "custom/monitor"
+  ],
+
+  "modules-right": [
+    "tray"
+  ],
+
+  "custom/monitor": {
+    "format": "󰍛",
+    "tooltip": "System monitor",
+    "on-click": "kitty -e btop"
+  },
+
+   "tray": {
+    "spacing": 10
+  }
+}

@@ -1,6 +1,0 @@
-configuration {
-  modi: "dmenu";
-  show-icons: false;
-}
-
-@theme "~/.config/rofi/powermenu/theme.rasi"
