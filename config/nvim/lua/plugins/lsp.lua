@@ -14,10 +14,10 @@ return {
 			require("mason").setup()
 			local mason_lspconfig = require("mason-lspconfig")
 			local lspconfig = require("lspconfig")
-            local util = require("lspconfig.util")
+			local util = require("lspconfig.util")
 
 			mason_lspconfig.setup({
-				ensure_installed = { "clangd", "lua_ls", "gopls", "rust_analyzer", "zls", "bashls" },
+				ensure_installed = { "clangd", "lua_ls", "gopls", "rust_analyzer", "zls", "bashls", "pyright" },
 			})
 
 			-- Shared on_attach callback
@@ -110,6 +110,21 @@ return {
 				settings = {
 					bashIde = {
 						globPattern = "*@(.sh|.inc|.bash)", -- files to lint
+					},
+				},
+			}
+
+			-- Python
+			vim.lsp.config["pyright"] = {
+				on_attach = on_attach,
+				capabilities = capabilities,
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "basic", -- or "strict"
+							autoSearchPaths = true,
+							useLibraryCodeForTypes = true,
+						},
 					},
 				},
 			}

@@ -14,6 +14,7 @@ return {
                 html = { "prettier" },
                 go = { "gofmt" },
                 lua = { "stylua" },
+                py = { "black" },
             },
         },
         keys = {
@@ -26,4 +27,3 @@ return {
         },
     }
 }
-
