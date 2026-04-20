@@ -6,38 +6,49 @@ $username\
 $directory\
 $git_branch\
 $git_status\
-$character\
-$cmake\
+$nodejs\
+$package\
+$golang\
 $zig\
-$golang
+$cmake\
+$character
 """
 
 [character]
-success_symbol = "❯"
-error_symbol = "❯"
-vicmd_symbol = "❮"
+success_symbol = "❯ "
+error_symbol = "❯ "
+vicmd_symbol = "❮ "
 
+# ─────────────────────────────
+# USER (metal accent)
+# ─────────────────────────────
 [username]
-style_user = 'cyan bold'
-style_root = 'red bold'
-format = '[$user]($style) '
+style_user = "bold #ff8c2a"
+style_root = "bold #cc5a1a"
+format = "[$user]($style) "
 disabled = false
 show_always = true
 
+# ─────────────────────────────
+# DIRECTORY (steel tone)
+# ─────────────────────────────
 [directory]
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
-style = "bold cyan"
+style = "bold #c0c0c0"
 format = "[$path]($style) "
 
+# ─────────────────────────────
+# GIT (orange highlight + steel contrast)
+# ─────────────────────────────
 [git_branch]
 symbol = " "
-style = "bold purple"
+style = "bold #ff8c2a"
 format = "[$symbol$branch]($style) "
 
 [git_status]
-style = "bold yellow"
+style = "bold #e0af68"
 format = "[($all_status$ahead_behind)]($style)"
 staged = "●"
 modified = "✱"
@@ -49,11 +60,36 @@ stashed = "⚑"
 ahead = "↑${count}"
 behind = "↓${count}"
 
+# ─────────────────────────────
+# LANGUAGES (muted steel + orange accents)
+# ─────────────────────────────
 [cmake]
 format = "[$symbol($version )]($style)"
+style = "bold #9aa3ad"
 
 [zig]
 format = "[$symbol($version )]($style)"
+style = "bold #ff8c2a"
 
 [golang]
 format = '[$symbol($version )($mod_version )]($style)'
+style = "bold #7aa2f7"
+
+[bun]
+format = "[$symbol($version )]($style)"
+style = "bold #ff8c2a"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "🐳 "
+style = "bold #7aa2f7"
+
+[nodejs]
+format = "[$symbol$version ]($style)"
+symbol = "⬢ "
+style = "bold #ff8c2a"
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = "📦 "
+style = "bold #c0c0c0"

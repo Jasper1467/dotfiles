@@ -1,11 +1,11 @@
 * {
-    bg:        #050a14;   /* deep navy */
-    bg-alt:    #0b1e33;   /* blue-tinted panel */
-    fg:        #e6f6ff;   /* near-white cyan */
-    fg-alt:    #5fa8d3;   /* muted neon blue */
+    bg:        #0b0f14;
+    bg-alt:    #151b22;
+    fg:        #d6d6d6;
+    fg-alt:    #9aa3ad;
 
-    accent:    #00b4ff;   /* neon blue */
-    accent-alt:#007acc;   /* darker neon */
+    accent:    #ff8c2a;
+    accent-alt:#cc5a1a;
 
     background-color: @bg;
     border: 0;
@@ -15,11 +15,11 @@
 }
 
 window {
-    width: 45%;
+    width: 40%;
 }
 
 element {
-    padding: 12;
+    padding: 10;
     text-color: @fg-alt;
 }
 
@@ -52,7 +52,7 @@ inputbar {
 listview {
     background-color: @bg;
     columns: 1;
-    lines: 8;
+    lines: 9;
 }
 
 prompt {
@@ -61,4 +61,3 @@ prompt {
     padding: 12 0 0 12;
     text-color: @accent;
 }
-
