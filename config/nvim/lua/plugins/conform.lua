@@ -1,0 +1,34 @@
+return {
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                c = { "clang_format" },
+                cpp = { "clang_format" },
+                rust = { "rustfmt" },
+                ts = { "prettier" },
+                tsx = { "prettier" },
+                js = { "prettier" },
+                jsx = { "prettier" },
+                json = { "prettier" },
+                jsonc = { "prettier" },
+                css = { "prettier" },
+                html = { "prettier" },
+                go = { "gofmt" },
+                lua = { "stylua" },
+                py = { "black" },
+                sh = { "shfmt" },
+                cmake = { "gersemi" },
+                toml = { "tombi" },
+            },
+        },
+        keys = {
+            {
+                "<leader>=",
+                function() require("conform").format() end,
+                mode = "n",
+                desc = "Format file",
+            },
+        },
+    }
+}

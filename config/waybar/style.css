@@ -1,0 +1,92 @@
+/* Color palette (industrial amber + steel theme) */
+@define-color bg #141414;        /* main background */
+@define-color fg #c7c0ad;        /* primary text */
+@define-color muted #8f8a7d;     /* inactive / secondary text */
+@define-color accent #c49a53;    /* amber highlight */
+@define-color accent-alt #d7ac63;
+@define-color panel #1d1f1f;     /* module background */
+@define-color steel #465a66;     /* selection / hover */
+@define-color fg-bright #e0d8c4;
+
+/* Base styling */
+* {
+  border: none;
+  font-family:
+    JetBrainsMono Nerd Font,
+    monospace;
+  font-size: 13px;
+  min-height: 0;
+  transition: none;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 10px;
+  color: @muted;
+}
+
+#workspaces button.active {
+  color: @accent;
+  background: alpha(@accent, 0.15);
+}
+
+#workspaces button:hover {
+  background: alpha(@steel, 0.35);
+  color: @fg-bright;
+}
+
+/* Clock */
+#clock {
+  color: @accent;
+  font-weight: bold;
+}
+
+/* Right modules */
+#cpu,
+#memory,
+#network,
+#pulseaudio {
+  padding: 0 10px;
+  margin: 4px 0;
+
+  background: @panel;
+  color: @accent;
+
+  border-radius: 8px;
+}
+
+/* Tray */
+#tray > .tray-item {
+  padding: 0 4px;
+  color: @fg;
+}
+
+#tray > .tray-item:hover {
+  color: @accent;
+}
+
+/* Power button */
+#custom-power {
+  padding: 0 14px;
+  margin: 4px 6px;
+
+  color: @bg;
+  background: @accent;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  box-shadow: 0 0 8px rgba(196, 154, 83, 0.25);
+}
+
+#custom-power:hover {
+  background: @accent-alt;
+  box-shadow: 0 0 12px rgba(196, 154, 83, 0.45);
+}

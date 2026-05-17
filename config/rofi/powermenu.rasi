@@ -1,0 +1,78 @@
+/* =========================
+   METRO CYAN POWER MENU FIX
+   NO WHITE FALLBACKS
+   ========================= */
+
+* {
+    bg: #0b1220;
+    fg: #e6edf3;
+    muted: #a9b4c0;
+    accent: #00d4ff;
+    panel: #121a2a;
+
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+/* MAIN WINDOW */
+window {
+    width: 320px;
+    height: 320px;
+    background-color: @bg;
+
+    border: 2px;
+    border-color: @accent;
+    border-radius: 14px;
+
+    padding: 12px;
+
+    /* IMPORTANT: kill default text color leaks */
+    text-color: @fg;
+}
+
+/* CONTAINER */
+mainbox {
+    spacing: 6px;
+    background-color: @bg;
+    text-color: @fg;
+}
+
+/* REMOVE SEARCH BAR EFFECTIVELY */
+inputbar {
+    enabled: false;
+}
+
+/* LIST BACKGROUND */
+listview {
+    spacing: 6px;
+    padding: 6px;
+    background-color: @bg;
+
+    /* CRITICAL: prevents white fallback text */
+    text-color: @fg;
+}
+
+/* ITEMS */
+element {
+    padding: 12px;
+    border-radius: 10px;
+
+    background-color: @panel;
+    text-color: @fg;
+}
+
+/* HOVER / SELECTED */
+element selected {
+    background-color: @accent;
+    text-color: #0b1220;
+}
+
+/* FORCE TEXT CONSISTENCY */
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+/* REMOVE PROMPT (prevents white label glitches) */
+prompt {
+    enabled: false;
+}

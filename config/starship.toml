@@ -1,0 +1,90 @@
+add_newline = false
+scan_timeout = 30
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$package\
+$golang\
+$zig\
+$cmake\
+$character
+"""
+
+[character]
+success_symbol = "[❯](bold #c49a53) "
+error_symbol = "[❯](bold #8f4b3e) "
+vicmd_symbol = "[❮](bold #5d7482) "
+
+# fg:        #c7c0ad
+# fg-alt:    #8f8a7d
+# amber:     #c49a53
+# rust:      #8f4b3e
+# steel:     #465a66
+# olive:     #5f6954
+
+[username]
+style_user = "bold #c49a53"
+style_root = "bold #8f4b3e"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+style = "bold #8f8a7d"
+format = "[$path]($style) "
+
+[git_branch]
+symbol = " "
+style = "bold #5d7482"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold #8f8a7d"
+format = "[($all_status$ahead_behind)]($style)"
+staged = "[●](#c49a53)"
+modified = "[✱](#b05d4b)"
+deleted = "[✖](#8f4b3e)"
+conflicted = "[‼](#8f4b3e)"
+renamed = "[➜](#5d7482)"
+untracked = "[…](#5f6954)"
+stashed = "[⚑](#74606f)"
+ahead = "[↑${count}](#c49a53)"
+behind = "[↓${count}](#5d7482)"
+
+[cmake]
+format = "[$symbol($version )]($style)"
+style = "bold #8f8a7d"
+
+[zig]
+format = "[$symbol($version )]($style)"
+style = "bold #c49a53"
+
+[golang]
+format = '[$symbol($version )($mod_version )]($style)'
+style = "bold #5d7482"
+
+[bun]
+format = "[$symbol($version )]($style)"
+style = "bold #b05d4b"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "🐳 "
+style = "bold #465a66"
+
+[nodejs]
+format = "[$symbol$version ]($style)"
+symbol = "⬢ "
+style = "bold #5f6954"
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = "📦 "
+style = "bold #8f8a7d"
