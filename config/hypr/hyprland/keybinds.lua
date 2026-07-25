@@ -1,83 +1,55 @@
-local mod = "SUPER"
+local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
-local function bind(key, action, opts)
-	hl.bind(key, action, opts)
-end
+local terminal    = "kitty"
+local fileManager = "dolphin"
 
-local function exec(key, command, opts)
-	bind(key, hl.dsp.exec_cmd(command), opts)
-end
+-- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
-local function app(key, command)
-	exec(mod .. " + " .. key, command)
-end
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun -theme ~/.config/rofi/theme.rasi"))
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
-local function focus(key, direction)
-	bind(mod .. " + " .. key, hl.dsp.focus({ direction = direction }))
-end
+-- Move focus with mainMod + arrow keys
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
-local function workspace(num)
-	local key = num % 10
-
-	bind(mod .. " + " .. key, hl.dsp.focus({ workspace = num }))
-
-	bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = num }))
-end
-
-local function media(key, command)
-	bind(key, hl.dsp.exec_cmd(command), { locked = true })
-end
-
-local function media_repeat(key, command)
-	bind(key, hl.dsp.exec_cmd(command), { locked = true, repeating = true })
-end
-
-app("T", "kitty")
-app("E", "dolphin")
-app("D", "rofi -show drun -theme ~/.config/rofi/theme.rasi")
-
-exec(mod .. " + M", "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit")
-
-bind(mod .. " + Q", hl.dsp.window.close())
-
-bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-
-bind(mod .. " + P", hl.dsp.window.pseudo())
-
-bind(mod .. " + J", hl.dsp.layout("togglesplit"))
-
-exec(mod .. "+ Print", 'grim -g "$(slurp -d)" - | wl-copy')
-
-focus("left", "left")
-focus("right", "right")
-focus("up", "up")
-focus("down", "down")
-
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-	workspace(i)
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
-bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+-- Example special workspace (scratchpad)
+hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+-- Scroll through existing workspaces with mainMod + scroll
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+-- Move/resize windows with mainMod + LMB/RMB and dragging
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+-- Laptop multimedia keys for volume and LCD brightness
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
-media_repeat("XF86AudioRaiseVolume", "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
-
-media_repeat("XF86AudioLowerVolume", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
-
-media_repeat("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-
-media_repeat("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
-
-media_repeat("XF86MonBrightnessUp", "brightnessctl -e4 -n2 set 5%+")
-
-media_repeat("XF86MonBrightnessDown", "brightnessctl -e4 -n2 set 5%-")
-
-media("XF86AudioNext", "playerctl next")
-media("XF86AudioPause", "playerctl play-pause")
-media("XF86AudioPlay", "playerctl play-pause")
-media("XF86AudioPrev", "playerctl previous")
+-- Requires playerctl
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })

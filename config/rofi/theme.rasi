@@ -1,11 +1,11 @@
 * {
     bg:         #141414;   /* main background */
     bg-alt:     #1d1f1f;   /* secondary panels */
-    fg:         #c7c0ad;   /* main text */
-    fg-alt:     #8f8a7d;   /* secondary text */
+    fg:           #c0caf5;     /* main text */
+    fg-alt:     #565f89;   /* secondary text */
 
-    accent:     #c49a53;   /* primary highlight */
-    accent-alt: #d7ac63;   /* hover/active */
+    accent:     #bb9af7;   /* primary highlight */
+    accent-alt: #9d7cd8;   /* hover/active */
 
     background-color: @bg;
     border: 0;
@@ -32,7 +32,7 @@ element {
 
 element selected {
     background-color: #465a66;
-    text-color: #e0d8c4;
+    text-color: @accent;
 }
 
 element-text {
