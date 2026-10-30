@@ -1,0 +1,126 @@
+
+/* NEBULA POWER MENU */
+
+* {
+    font: "JetBrainsMono Nerd Font 11";
+
+    background: #0d0c1ef2;
+    background-alt: #17142df2;
+    foreground: #e6ddff;
+
+    selected: #bd93f9;
+    active: #80d9ff;
+    urgent: #ff79c6;
+
+    border-color: #bd93f9;
+}
+
+window {
+    width: 42%;
+    height: 38%;
+
+    location: center;
+    anchor: center;
+
+    border: 2px;
+    border-radius: 18px;
+    border-color: @border-color;
+
+    background-color: @background;
+}
+
+mainbox {
+    children: [message, listview];
+
+    spacing: 15px;
+    padding: 22px;
+
+    background-color: transparent;
+}
+
+message {
+    padding: 5px;
+    background-color: transparent;
+}
+
+textbox {
+    text-color: #bd93f9;
+    background-color: transparent;
+}
+
+listview {
+    columns: 3;
+    lines: 2;
+
+    cycle: false;
+    dynamic: true;
+    scrollbar: false;
+
+    spacing: 12px;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    padding: 18px 10px;
+    spacing: 10px;
+
+    border: 1px;
+    border-radius: 12px;
+    border-color: #554078;
+
+    background-color: #17142df2;
+    text-color: #e6ddff;
+}
+
+element normal.normal {
+    background-color: #17142df2;
+    text-color: #e6ddff;
+}
+
+element selected.normal {
+    background-color: #302449;
+    text-color: #80d9ff;
+
+    border: 1px;
+    border-color: #bd93f9;
+}
+
+element alternate.normal {
+    background-color: #17142df2;
+    text-color: #e6ddff;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    background-color: transparent;
+}
+
+element-text,
+element-icon {
+    background-image: none;
+}
+
+element selected.normal element-text {
+    text-color: #80d9ff;
+}
+
+scrollbar {
+    handle-width: 4px;
+    border-radius: 10px;
+    background-color: #bd93f9;
+}
+
+window,
+mainbox,
+inputbar,
+listview {
+    background-image: none;
+}
+

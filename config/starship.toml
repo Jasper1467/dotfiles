@@ -11,26 +11,25 @@ $package\
 $golang\
 $zig\
 $cmake\
-$character
-"""
+$character"""
 
 [hostname]
-style = "bold #565f89"
+style = "bold #8b83aa"
 
 [cmd_duration]
-style = "bold #bb9af7"
+style = "bold #bd93f9"
 
 [line_break]
 disabled = true
 
 [character]
-success_symbol = "[❯](bold #9d7cd8) "
-error_symbol = "[❯](bold #f7768e) "
-vicmd_symbol = "[❮](bold #bb9af7) "
+success_symbol = "[❯](bold #bd93f9) "
+error_symbol = "[❯](bold #ff79c6) "
+vicmd_symbol = "[❮](bold #80d9ff) "
 
 [username]
-style_user = "bold #9d7cd8"
-style_root = "bold #f7768e"
+style_user = "bold #bd93f9"
+style_root = "bold #ff79c6"
 format = "[$user]($style) "
 disabled = false
 show_always = true
@@ -39,56 +38,56 @@ show_always = true
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
-style = "bold #565f89"
+style = "bold #e6ddff"
 format = "[$path]($style) "
 
 [git_branch]
 symbol = " "
-style = "bold #7aa2f7"
+style = "bold #80d9ff"
 format = "[$symbol$branch]($style) "
 
 [git_status]
-style = "bold #565f89"
+style = "bold #a99bc9"
 format = "[($all_status$ahead_behind)]($style)"
 
-staged = "[●](#e0af68)"
-modified = "[✱](#ff9e64)"
-deleted = "[✖](#f7768e)"
-conflicted = "[‼](#f7768e)"
-renamed = "[➜](#7aa2f7)"
-untracked = "[…](#9ece6a)"
-stashed = "[⚑](#bb9af7)"
+staged = "[●](#bd93f9)"
+modified = "[✱](#ff79c6)"
+deleted = "[✖](#ff5555)"
+conflicted = "[‼](#ff5555)"
+renamed = "[➜](#80d9ff)"
+untracked = "[…](#8be9fd)"
+stashed = "[⚑](#bd93f9)"
 
-ahead = "[↑${count}](#e0af68)"
-behind = "[↓${count}](#7aa2f7)"
+ahead = "[↑${count}](#80d9ff)"
+behind = "[↓${count}](#ff79c6)"
 
 [cmake]
 format = "[$symbol($version )]($style)"
-style = "bold #565f89"
+style = "bold #80d9ff"
 
 [zig]
 format = "[$symbol($version )]($style)"
-style = "bold #bb9af7"
+style = "bold #bd93f9"
 
 [golang]
 format = '[$symbol($version )($mod_version )]($style)'
-style = "bold #7aa2f7"
+style = "bold #80d9ff"
 
 [bun]
 format = "[$symbol($version )]($style)"
-style = "bold #ff9e64"
+style = "bold #ff79c6"
 
 [docker_context]
 format = "[$symbol$context]($style) "
-symbol = "🐳 "
-style = "bold #7dcfff"
+symbol = "󰡨 "
+style = "bold #80d9ff"
 
 [nodejs]
 format = "[$symbol$version ]($style)"
 symbol = "⬢ "
-style = "bold #7dcfff"
+style = "bold #8be9fd"
 
 [package]
 format = "[$symbol$version]($style) "
-symbol = "📦 "
-style = "bold #ff75a0"
+symbol = "󰏗 "
+style = "bold #ff79c6"

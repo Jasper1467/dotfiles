@@ -1,0 +1,454 @@
+/* =========================================================
+   NEBULA - SWAYNC THEME
+   Matching Rofi Nebula
+   Font: JetBrainsMono Nerd Font
+   ========================================================= */
+
+/* -------------------- COLOR PALETTE -------------------- */
+
+@define-color background       #0d0c1e;
+@define-color background-alt   #17142d;
+@define-color foreground       #e6ddff;
+
+@define-color selected         #bd93f9;
+@define-color active           #80d9ff;
+@define-color urgent           #ff79c6;
+
+@define-color border-color     #554078;
+@define-color selected-bg      #302449;
+@define-color muted            #77738f;
+
+/* -------------------- GLOBAL -------------------- */
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 11pt;
+  color: @foreground;
+}
+
+/* -------------------- CONTROL CENTER -------------------- */
+
+.control-center {
+  background: alpha(@background, 0.96);
+  border: 2px solid @selected;
+  border-radius: 18px;
+
+  padding: 12px;
+  margin: 8px;
+
+  color: @foreground;
+}
+
+/* Control center notification list */
+
+.control-center-list {
+  background: transparent;
+  border-radius: 12px;
+}
+
+.control-center-list-placeholder {
+  color: @muted;
+}
+
+/* -------------------- NOTIFICATION POPUPS -------------------- */
+
+.notification-row {
+  outline: none;
+  background: transparent;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: transparent;
+}
+
+.notification {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px 4px;
+  padding: 5px;
+
+  box-shadow: none;
+}
+
+.notification:hover {
+  background: @selected-bg;
+  border-color: @selected;
+}
+
+/* Notification content */
+
+.notification-content {
+  background: transparent;
+  padding: 8px;
+}
+
+.notification-default-action {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.notification-default-action:hover {
+  background: @selected-bg;
+}
+
+/* Notification text */
+
+.summary {
+  color: @selected;
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+.body {
+  color: @foreground;
+  font-size: 10pt;
+}
+
+/* Notification urgency */
+
+.notification.critical {
+  border: 1px solid @urgent;
+}
+
+.notification.critical .summary {
+  color: @urgent;
+}
+
+/* Notification images */
+
+.image {
+  border-radius: 8px;
+}
+
+/* -------------------- NOTIFICATION ACTIONS -------------------- */
+
+.notification-action {
+  background: @selected-bg;
+  border: 1px solid @border-color;
+  border-radius: 8px;
+
+  color: @active;
+
+  margin: 4px;
+  padding: 6px 10px;
+}
+
+.notification-action:hover {
+  background: @selected;
+  color: @background;
+  border-color: @selected;
+}
+
+/* Close button */
+
+.close-button {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 8px;
+
+  color: @urgent;
+  margin: 4px;
+  padding: 4px;
+}
+
+.close-button:hover {
+  background: @urgent;
+  color: @background;
+  border-color: @urgent;
+}
+
+/* -------------------- TITLE WIDGET -------------------- */
+
+.widget-title {
+  background: transparent;
+
+  color: @selected;
+  font-size: 14pt;
+  font-weight: bold;
+
+  margin: 8px;
+  padding: 6px;
+}
+
+.widget-title > button {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 9px;
+
+  color: @active;
+
+  padding: 6px 12px;
+}
+
+.widget-title > button:hover {
+  background: @selected-bg;
+  border-color: @selected;
+}
+
+/* -------------------- DO NOT DISTURB -------------------- */
+
+.widget-dnd {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px;
+  padding: 10px;
+
+  color: @foreground;
+}
+
+.widget-dnd > label {
+  color: @selected;
+  font-weight: bold;
+}
+
+.widget-dnd > switch {
+  background: @selected-bg;
+  border: 1px solid @border-color;
+}
+
+.widget-dnd > switch:checked {
+  background: @selected;
+}
+
+.widget-dnd > switch slider {
+  background: @foreground;
+  border-radius: 50%;
+}
+
+/* -------------------- QUICK SETTINGS -------------------- */
+
+.widget-buttons-grid {
+  background: transparent;
+  margin: 6px;
+  padding: 2px;
+}
+
+.widget-buttons-grid > flowbox {
+  background: transparent;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  color: @foreground;
+
+  margin: 3px;
+  padding: 12px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @selected-bg;
+  border-color: @selected;
+  color: @active;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @selected-bg;
+  border-color: @selected;
+  color: @active;
+}
+
+/* -------------------- VOLUME -------------------- */
+
+.widget-volume {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px;
+  padding: 10px;
+}
+
+.widget-volume label {
+  color: @active;
+}
+
+.widget-volume scale trough {
+  background: @selected-bg;
+  border-radius: 10px;
+  min-height: 6px;
+}
+
+.widget-volume scale highlight {
+  background: @selected;
+  border-radius: 10px;
+}
+
+.widget-volume scale slider {
+  background: @active;
+  border: none;
+  border-radius: 50%;
+  min-height: 12px;
+  min-width: 12px;
+}
+
+/* -------------------- BRIGHTNESS -------------------- */
+
+.widget-backlight {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px;
+  padding: 10px;
+}
+
+.widget-backlight label {
+  color: @active;
+}
+
+.widget-backlight scale trough {
+  background: @selected-bg;
+  border-radius: 10px;
+  min-height: 6px;
+}
+
+.widget-backlight scale highlight {
+  background: @selected;
+  border-radius: 10px;
+}
+
+.widget-backlight scale slider {
+  background: @active;
+  border: none;
+  border-radius: 50%;
+  min-height: 12px;
+  min-width: 12px;
+}
+
+/* -------------------- MEDIA PLAYER -------------------- */
+
+.widget-mpris {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px;
+  padding: 10px;
+}
+
+.widget-mpris-player {
+  background: transparent;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.widget-mpris-title {
+  color: @selected;
+  font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+  color: @active;
+}
+
+.widget-mpris button {
+  background: @selected-bg;
+  border: 1px solid @border-color;
+  border-radius: 9px;
+
+  color: @foreground;
+  padding: 6px;
+}
+
+.widget-mpris button:hover {
+  background: @selected;
+  color: @background;
+}
+
+/* -------------------- CALENDAR -------------------- */
+
+.widget-calendar {
+  background: @background-alt;
+  border: 1px solid @border-color;
+  border-radius: 12px;
+
+  margin: 6px;
+  padding: 10px;
+}
+
+.widget-calendar label {
+  color: @foreground;
+}
+
+.widget-calendar button {
+  background: transparent;
+  color: @foreground;
+  border-radius: 8px;
+}
+
+.widget-calendar button:hover {
+  background: @selected-bg;
+  color: @active;
+}
+
+.widget-calendar:selected {
+  background: @selected;
+  color: @background;
+}
+
+/* -------------------- SCROLLBARS -------------------- */
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar trough {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: @selected;
+  border-radius: 10px;
+  min-width: 4px;
+  min-height: 4px;
+}
+
+scrollbar slider:hover {
+  background: @active;
+}
+
+/* -------------------- TEXT SELECTION -------------------- */
+
+selection {
+  background: @selected;
+  color: @background;
+}
+
+/* -------------------- TOOLTIP -------------------- */
+
+tooltip {
+  background: @background-alt;
+  border: 1px solid @selected;
+  border-radius: 8px;
+  color: @foreground;
+}
+
+/* -------------------- GENERAL BUTTONS -------------------- */
+
+button {
+  transition: 150ms ease;
+}
+
+button:focus {
+  border-color: @selected;
+  outline: none;
+}
+
+/* -------------------- REMOVE DEFAULT BACKGROUNDS -------------------- */
+
+.control-center,
+.control-center-list,
+.notification-content,
+.widget-buttons-grid,
+.widget-mpris-player,
+.widget-calendar {
+  background-image: none;
+}

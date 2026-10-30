@@ -1,6 +1,0 @@
-hl.on("hyprland.start", function ()
-    hl.exec_cmd("nm-applet")
-    hl.exec_cmd("qs -c ~/.config/quickshell/topbar")
-    hl.exec_cmd("dunst")
-    hl.exec_cmd("hyprpaper")
-end)

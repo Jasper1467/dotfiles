@@ -1,0 +1,92 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+
+  "positionX": "right",
+  "positionY": "top",
+
+  "layer": "top",
+  "control-center-layer": "top",
+  "layer-shell": true,
+
+  "control-center-width": 400,
+  "control-center-height": 650,
+
+  "notification-window-width": 380,
+
+  "fit-to-screen": true,
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+
+  "notification-2fa-action": true,
+  "notification-inline-replies": true,
+
+  "timeout": 5,
+  "timeout-low": 3,
+  "timeout-critical": 0,
+
+  "notification-icon-size": 48,
+  "notification-body-image-height": 120,
+  "notification-body-image-width": 200,
+
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+
+  "widgets": [
+    "title",
+    "dnd",
+    "buttons-grid",
+    "mpris",
+    "volume",
+    "backlight",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "title": {
+      "text": "NEBULA NOTIFICATIONS",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+
+    "dnd": {
+      "text": "Do Not Disturb",
+      "enabled": false
+    },
+
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰐥",
+          "command": "wlogout"
+        },
+        {
+          "label": "󰍃",
+          "command": "hyprctl dispatch exit"
+        },
+        {
+          "label": "󰖔",
+          "command": "hyprlock"
+        },
+        {
+          "label": "󰤄",
+          "command": "swaync-client -d"
+        }
+      ]
+    },
+
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12
+    },
+
+    "volume": {
+      "label": "󰕾"
+    },
+
+    "backlight": {
+      "label": "󰃟"
+    }
+  }
+}

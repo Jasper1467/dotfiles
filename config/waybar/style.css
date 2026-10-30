@@ -1,0 +1,538 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  font-weight: bold;
+
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* ==========================================
+   MAIN FLOATING PANEL
+   ========================================== */
+
+window#waybar {
+  background: transparent;
+  color: #e6ddff;
+}
+
+window#waybar > box {
+  background: rgba(13, 12, 30, 0.96);
+
+  border: 1px solid rgba(189, 147, 249, 0.42);
+  border-radius: 18px;
+
+  margin: 5px 12px 0 12px;
+  padding: 3px 12px;
+
+  box-shadow:
+    0 0 12px rgba(189, 147, 249, 0.14),
+    0 0 28px rgba(128, 217, 255, 0.07),
+    0 5px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* ==========================================
+   MODULE CONTAINERS
+   ========================================== */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   ARCH LOGO
+   ========================================== */
+
+#custom-arch {
+  color: #bd93f9;
+  font-size: 20px;
+
+  padding: 0 14px 0 6px;
+  margin-right: 8px;
+
+  border-right: 1px solid rgba(189, 147, 249, 0.3);
+}
+
+#custom-arch:hover {
+  color: #80d9ff;
+}
+
+/* ==========================================
+   CLOCK
+   ========================================== */
+
+#clock {
+  color: #80d9ff;
+  padding: 0 12px;
+}
+
+#clock:hover {
+  color: #bd93f9;
+}
+
+/* ==========================================
+   SYSTEM MONITORING
+   ========================================== */
+
+#cpu {
+  color: #bd93f9;
+  padding: 0 10px;
+}
+
+#memory {
+  color: #ff79c6;
+  padding: 0 10px;
+}
+
+#temperature {
+  color: #80d9ff;
+  padding: 0 10px;
+}
+
+#temperature.critical {
+  color: #ff5555;
+}
+
+/* ==========================================
+   CONNECTIVITY
+   ========================================== */
+
+#network {
+  color: #8be9fd;
+  padding: 0 10px;
+}
+
+#bluetooth {
+  color: #bd93f9;
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  color: #ff79c6;
+  padding: 0 10px;
+}
+
+#pulseaudio.muted {
+  color: #77738f;
+}
+
+/* ==========================================
+   NEBULA MEDIA GROUP
+   ========================================== */
+
+/* NEBULA MEDIA */
+
+/* MEDIA GROUP */
+#group-media {
+  background: #0d0c1e;
+  border: 1px solid #554078;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 2px;
+}
+
+#custom-media-toggle {
+  color: #bd93f9;
+  background: #17142d;
+  border-radius: 8px;
+  padding: 0 12px;
+  margin: 2px;
+  font-size: 16px;
+}
+
+#custom-media-toggle:hover {
+  color: #80d9ff;
+  background: #302449;
+}
+
+.media-child {
+  background: #17142d;
+  color: #e6ddff;
+  border: 1px solid #554078;
+  border-radius: 8px;
+  padding: 0 9px;
+  margin: 2px;
+}
+
+/* QUICK SETTINGS GROUP */
+#group-system-center {
+  background: #0d0c1e;
+  border: 1px solid #554078;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 2px;
+}
+
+#custom-system-center {
+  color: #bd93f9;
+  background: #17142d;
+  border-radius: 8px;
+  padding: 0 12px;
+  margin: 2px;
+  font-size: 16px;
+}
+
+#custom-system-center:hover {
+  color: #80d9ff;
+  background: #302449;
+}
+
+.drawer-child {
+  background: #17142d;
+  color: #e6ddff;
+  border: 1px solid #554078;
+  border-radius: 8px;
+  padding: 0 9px;
+  margin: 2px;
+}
+#mpris {
+  color: #bd93f9;
+  min-height: 28px;
+}
+
+#mpris.playing {
+  color: #80d9ff;
+}
+
+#mpris.paused {
+  color: #77738f;
+}
+
+#custom-cava {
+  color: #80d9ff;
+  padding: 0 10px;
+  min-width: 100px;
+  font-size: 17px;
+}
+
+/* ==========================================
+   WORKSPACES
+   ========================================== */
+
+#workspaces {
+  padding: 0 5px;
+}
+
+#workspaces button {
+  color: #77738f;
+  background: transparent;
+
+  padding: 0 8px;
+  margin: 3px 2px;
+
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+#workspaces button.active {
+  color: #bd93f9;
+  background: rgba(189, 147, 249, 0.15);
+}
+
+#workspaces button.occupied {
+  color: #80d9ff;
+}
+
+#workspaces button.urgent {
+  color: #ff79c6;
+  background: rgba(255, 121, 198, 0.15);
+}
+
+#workspaces button:hover {
+  color: #e6ddff;
+  background: rgba(189, 147, 249, 0.12);
+}
+
+/* ==========================================
+   SYSTEM TRAY
+   ========================================== */
+
+#tray {
+  color: #e6ddff;
+  -gtk-icon-style: symbolic;
+
+  padding: 0 10px;
+  margin-left: 8px;
+
+  border-left: 1px solid rgba(189, 147, 249, 0.35);
+}
+
+#tray image {
+  opacity: 1;
+  -gtk-icon-effect: none;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: none;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ==========================================
+   NEBULA GAMEMODE INDICATOR
+   ========================================== */
+
+#gamemode {
+  background: #17142d;
+  color: #bd93f9;
+  border: 1px solid #554078;
+  border-radius: 9px;
+  padding: 0 11px;
+  margin: 2px;
+  font-size: 17px;
+  transition: all 0.2s ease;
+}
+
+#gamemode.running {
+  color: #80d9ff;
+  background: #302449;
+  border: 1px solid #80d9ff;
+}
+
+#gamemode:hover {
+  color: #ff79c6;
+  border-color: #ff79c6;
+}
+
+/* ==========================================
+   NEBULA POWER BUTTON
+   ========================================== */
+
+#custom-power {
+  background: #17142d;
+  color: #ff79c6;
+
+  border: 1px solid #554078;
+  border-radius: 9px;
+
+  padding: 0 13px;
+  margin: 2px 5px 2px 3px;
+
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 18px;
+
+  transition: all 200ms ease;
+}
+
+#custom-power:hover {
+  background: #302449;
+  color: #80d9ff;
+  border-color: #bd93f9;
+  box-shadow: 0 0 12px rgba(189, 147, 249, 0.25);
+}
+
+/* ==========================================
+   NEBULA SYSTEM CENTER
+   ========================================== */
+
+/* Main system center group */
+#group-system-center {
+  background: #0d0c1e;
+  border: 1px solid #554078;
+  border-radius: 12px;
+  margin: 4px;
+  padding: 2px;
+}
+
+/* Main drawer button */
+#custom-system-center {
+  color: #bd93f9;
+  background: #17142d;
+  border-radius: 10px;
+  padding: 0 12px;
+  margin: 2px;
+  font-size: 16px;
+}
+
+#custom-system-center:hover {
+  color: #80d9ff;
+  background: #302449;
+}
+
+/* All drawer children */
+.drawer-child {
+  background: #17142d;
+  color: #e6ddff;
+  border: 1px solid #554078;
+  border-radius: 9px;
+  padding: 0 11px;
+  margin: 2px;
+  transition: all 150ms ease;
+}
+
+/* Notification */
+#custom-notification {
+  background: #17142d;
+  color: #bd93f9;
+  border: 1px solid #554078;
+  border-radius: 9px;
+  padding: 0 11px;
+  margin: 2px;
+  min-height: 28px;
+  font-size: 16px;
+}
+
+#custom-notification.notification {
+  color: #80d9ff;
+}
+
+#custom-notification.dnd {
+  color: #ff79c6;
+}
+/* Audio */
+#pulseaudio {
+  color: #80d9ff;
+}
+
+#pulseaudio.muted {
+  color: #ff79c6;
+}
+
+/* Network */
+#network {
+  color: #80d9ff;
+}
+
+#network.disconnected {
+  color: #ff79c6;
+}
+
+/* Bluetooth */
+#bluetooth {
+  color: #bd93f9;
+}
+
+/* Hover effects */
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-notification:hover {
+  background: #302449;
+  border-color: #bd93f9;
+}
+
+#custom-mic {
+  background: #17142d;
+  border: 1px solid #554078;
+  border-radius: 9px;
+  padding: 0 10px;
+  margin: 0 4px;
+}
+
+#custom-mic.ready {
+  color: #80d9ff;
+}
+
+#custom-mic.muted {
+  color: #ff779d;
+  background: rgba(100, 30, 60, 0.24);
+  border-color: #a94c76;
+}
+
+#custom-mic.unknown {
+  color: #8d83a8;
+}
+
+/* ==========================================
+   HOVER STATES
+   ========================================== */
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#network:hover,
+#pulseaudio:hover,
+#bluetooth:hover {
+  background: rgba(189, 147, 249, 0.1);
+  border-radius: 8px;
+}
+
+/* ==========================================
+   TOOLTIP
+   ========================================== */
+
+tooltip {
+  background: rgba(13, 12, 30, 0.98);
+
+  border: 1px solid rgba(189, 147, 249, 0.55);
+  border-radius: 12px;
+
+  color: #e6ddff;
+}
+
+tooltip label {
+  color: #e6ddff;
+  padding: 6px;
+}
+
+/* ==========================================
+   NEBULA MICROPHONE PRIVACY
+   ========================================== */
+
+#privacy-item.audio-in {
+  color: #80d9ff;
+}
+
+/* Nebula microphone */
+
+#custom-mic {
+  background: #17142d;
+  border: 1px solid #554078;
+  border-radius: 9px;
+  padding: 0 10px;
+  margin: 0 4px;
+}
+
+#custom-mic.ready {
+  color: #80d9ff;
+}
+
+#custom-mic.muted {
+  color: #ff779d;
+  background: rgba(100, 30, 60, 0.24);
+  border-color: #a94c76;
+}
+
+#custom-mic.unknown {
+  color: #8d83a8;
+}
+
+/* Privacy indicator */
+
+#privacy {
+  background: transparent;
+  padding: 0 5px;
+  margin: 0 3px;
+}
+
+#privacy-item {
+  color: #80d9ff;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 3px;
+}
+
+#privacy-item.audio-in {
+  color: #ffbd75;
+}
+
+/* ==========================================
+   WINDOW STATES
+   ========================================== */
+
+window#waybar.empty #window {
+  background: transparent;
+}

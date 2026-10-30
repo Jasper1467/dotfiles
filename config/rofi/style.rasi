@@ -1,0 +1,147 @@
+* {
+    font: "JetBrainsMono Nerd Font 11";
+
+    background: #0d0c1ef2;
+    background-alt: #17142df2;
+    foreground: #e6ddff;
+
+    selected: #bd93f9;
+    active: #80d9ff;
+    urgent: #ff79c6;
+
+    border-color: #bd93f9;
+}
+
+window {
+    width: 42%;
+    height: 55%;
+
+    location: center;
+    anchor: center;
+
+    border: 2px;
+    border-radius: 18px;
+    border-color: @border-color;
+
+    background-color: @background;
+}
+
+mainbox {
+    children: [inputbar, message, listview];
+
+    spacing: 15px;
+    padding: 22px;
+
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+
+    spacing: 12px;
+    padding: 14px;
+
+    border: 1px;
+    border-radius: 12px;
+    border-color: #554078;
+
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+prompt {
+    text-color: #80d9ff;
+    background-color: transparent;
+}
+
+entry {
+    placeholder: "Search the galaxy...";
+    placeholder-color: #77738f;
+
+    text-color: @foreground;
+    background-color: transparent;
+
+    cursor: text;
+}
+
+message {
+    padding: 5px;
+    background-color: transparent;
+}
+
+textbox {
+    text-color: #bd93f9;
+    background-color: transparent;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+
+    spacing: 7px;
+    background-color: transparent;
+}
+
+element {
+    padding: 10px;
+    spacing: 12px;
+
+    border-radius: 10px;
+
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element selected.normal {
+    background-color: #302449;
+    text-color: #80d9ff;
+
+    border: 1px;
+    border-color: #bd93f9;
+}
+
+element alternate.normal {
+    background-color: #17142d80;
+    text-color: @foreground;
+}
+
+element-icon {
+    size: 25px;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element selected.normal element-text {
+    text-color: #80d9ff;
+}
+
+element selected.normal element-icon {
+    background-color: transparent;
+}
+
+scrollbar {
+    handle-width: 4px;
+    border-radius: 10px;
+    background-color: #bd93f9;
+}
+
+window,
+mainbox,
+inputbar,
+listview {
+    background-image: none;
+}

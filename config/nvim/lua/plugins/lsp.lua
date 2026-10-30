@@ -2,28 +2,44 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim", -- LSP/DAP/Linter installer
-			"williamboman/mason-lspconfig.nvim", -- Bridge for mason + lspconfig
-			"folke/neodev.nvim", -- Better Lua support for Neovim config
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
+
+			-- Replace neodev.nvim
+			{
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = {},
+			},
 		},
+
 		config = function()
-			require("neodev").setup()
-
-			-- Setup mason
 			require("mason").setup()
-			local mason_lspconfig = require("mason-lspconfig")
-			local lspconfig = require("lspconfig")
-			local util = require("lspconfig.util")
 
-			mason_lspconfig.setup({
-				ensure_installed = { "clangd", "lua_ls", "gopls", "rust_analyzer", "zls", "bashls", "pyright" },
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"clangd",
+					"lua_ls",
+					"gopls",
+					"rust_analyzer",
+					"zls",
+					"bashls",
+					"pyright",
+				},
 			})
 
-			-- Shared on_attach callback
+			local util = require("lspconfig.util")
+
+			local capabilities =
+				require("cmp_nvim_lsp").default_capabilities()
+
 			local on_attach = function(_, bufnr)
 				local map = function(mode, lhs, rhs, desc)
-					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+					vim.keymap.set(mode, lhs, rhs, {
+						buffer = bufnr,
+						desc = desc,
+					})
 				end
 
 				map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
@@ -35,108 +51,94 @@ return {
 				map("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
 			end
 
-			-- Capabilities (for nvim-cmp completion)
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			-- C++ (clangd)
-			vim.lsp.config["clangd"] = {
-				cmd = {
-					"clangd",
-					"--background-index",
-					"--clang-tidy",
-					"--completion-style=bundled",
-					"--header-insertion=iwyu",
-					"--log=error",
-					"--offset-encoding=utf-16",
-					"--cross-file-rename",
-				},
-				on_attach = on_attach,
-				capabilities = capabilities,
-			}
-
-			-- Lua
-			vim.lsp.config["lua_ls"] = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						workspace = { checkThirdParty = false },
-						telemetry = { enable = false },
+			local servers = {
+				clangd = {
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--completion-style=bundled",
+						"--header-insertion=iwyu",
+						"--log=error",
+						"--offset-encoding=utf-16",
+						"--cross-file-rename",
 					},
 				},
-			}
 
-			-- Go
-			vim.lsp.config["gopls"] = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				settings = {
-					gopls = {
-						completeUnimported = true,
-						analyses = {
-							unusedparams = true,
-						},
-						staticcheck = true,
-					},
-				},
-			}
-
-			-- Rust
-			vim.lsp.config["rust_analyzer"] = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {
-							command = "clippy",
-						},
-						cargo = {
-							loadOutDirsFromCheck = true,
+				lua_ls = {
+					settings = {
+						Lua = {
+							workspace = {
+								checkThirdParty = false,
+							},
+							telemetry = {
+								enable = false,
+							},
 						},
 					},
 				},
-			}
 
-			-- Zig
-			vim.lsp.config["zls"] = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				root_dir = util.root_pattern("zls.json", "build.zig", ".git"),
-			}
-			-- Shell
-			vim.lsp.config["bashls"] = {
-				on_attach = on_attach, -- reuse your existing on_attach callback
-				capabilities = capabilities, -- reuse cmp capabilities
-				settings = {
-					bashIde = {
-						globPattern = "*@(.sh|.inc|.bash)", -- files to lint
+				gopls = {
+					settings = {
+						gopls = {
+							completeUnimported = true,
+							analyses = {
+								unusedparams = true,
+							},
+							staticcheck = true,
+						},
 					},
 				},
-			}
 
-			-- Python
-			vim.lsp.config["pyright"] = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				settings = {
-					python = {
-						analysis = {
-							typeCheckingMode = "basic", -- or "strict"
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								command = "clippy",
+							},
+							cargo = {
+								loadOutDirsFromCheck = true,
+							},
+						},
+					},
+				},
+
+				zls = {
+					root_dir = util.root_pattern(
+						"zls.json",
+						"build.zig",
+						".git"
+					),
+				},
+
+				bashls = {
+					settings = {
+						bashIde = {
+							globPattern = "*@(.sh|.inc|.bash)",
+						},
+					},
+				},
+
+				pyright = {
+					settings = {
+						python = {
+							analysis = {
+								typeCheckingMode = "basic",
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+							},
 						},
 					},
 				},
 			}
 
-			-- Auto-setup servers from mason-lspconfig
-			mason_lspconfig.setup_handlers({
-				function(server_name) -- default handler
-					local lspconfig = require("lspconfig")
-					local config = vim.lsp.config[server_name] or {}
-					lspconfig[server_name].setup(config)
-				end,
-			})
+			for server, config in pairs(servers) do
+				config.capabilities = capabilities
+				config.on_attach = on_attach
+
+				vim.lsp.config(server, config)
+				vim.lsp.enable(server)
+			end
 		end,
 	},
 
@@ -145,7 +147,9 @@ return {
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
 			require("clangd_extensions").setup({
-				inlay_hints = { enabled = true },
+				inlay_hints = {
+					enabled = true,
+				},
 			})
 		end,
 	},
